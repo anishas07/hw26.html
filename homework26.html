@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body bgcolor="pink">
+    <h1> party invite card</h1>
+    <P id="studentD"></P>
+    <p id="car"></P>
+    <p id="Welcome"></P>
+    <p id="Home"></p>
+    <p id="Friend"></p>
+
+<script> 
+   class Student {
+        constructor(name, year) {
+            this.name = name;
+            this.year = year;
+        }
+
+        age() {
+            let date = new Date();
+            return date.getFullYear() - this.year;
+        }
+
+        static Welcome() {
+            return "From, Anisha: Welcome!";
+        }
+
+        static Home(studentInstance) {
+            return "From, Anisha: You are invited";
+        }
+
+        hi() {
+            return "Now" + this.name + ", you're invited!";
+        }
+    }
+
+    class Car {
+        constructor(brand) {
+            this.brand = brand;
+        }
+
+        present() {
+            return "I own a car. The type is " + this.brand + ".";
+        }
+    }
+
+    class Model extends Car {
+        constructor(brand, model) {
+            super(brand);
+            this.model = model;
+        }
+
+        show() {
+            return this.present() + " The model is " + this.model + ".";
+        }
+    }
+
+    let alissa = new Student("Alissa", 2009); 
+    let mary = new Student("Mary", 2009); 
+    let myCar = new Model("Ford","focus" ); 
+
+    document.getElementById("studentD").innerHTML =
+        "Friends invited to the party: <br>" + alissa.hi() + "<br> <br>" + mary.hi();
+
+    document.getElementById("car").innerHTML =
+        "You are invited to the party on the 24nd of Aug, 2025. <br> <br>" + myCar.show();
+
+    document.getElementById("Welcome").innerHTML = Student.Welcome();
+    document.getElementById("Home").innerHTML = Student.Home(alissa);
+    document.getElementById("Friend").innerHTML = "Anisha, is turning " + alissa.age() + " years old.";
+
+</script>
+</body>
+</html>
